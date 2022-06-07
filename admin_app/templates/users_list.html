@@ -1,0 +1,25 @@
+{% extends 'admin_home.html' %}
+{% block admin_content%}
+<style>
+    .table_container {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+</style>
+<div class="table_container">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+        {%for user in user_list%}
+        <tr>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+
+            <td></td>
+        </tr>
+        {%endfor%}
+    </table>
+</div>
+{%endblock%}

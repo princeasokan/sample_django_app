@@ -1,0 +1,79 @@
+<html>
+
+<head></head>
+<style>
+    .container {
+        background-color: beige;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .header {
+        background-color: darkmagenta;
+        height: 60px;
+        color: white;
+
+    }
+
+    .right_header {
+        color: #fff;
+        float: right;
+        margin-right: 10px;
+    }
+
+
+    .nav {
+        background-color: aquamarine;
+            color: white;
+        width: 200px;
+        min-height: calc(100vh - 30px);
+    }
+
+    .content {
+        min-height: 80%;
+        width: 100%;
+
+        margin: 20px 0 0 30px;
+    }
+
+    .header-item>a {
+        text-decoration: none;
+        color: #fff;
+
+    }
+    .user{
+        color:darkgray
+    }
+    .nav>ul>li {
+            list-style-type: none;
+        }
+
+</style>
+
+<body>
+    <nav class="header">
+        <div class="right_header"><span class="header-item">Welcome</span>
+            <span class="user">{{user}}</span> <span class="header-item"><a href="/../logout">Logout</a> </span>
+        </div>
+    </nav>
+    <div class="container">
+
+        <div class="nav">
+            <ul>
+                <li><a href="register_brand">Register  </a></li>
+                <li><a href="product_list">Show list</a></li>
+            </ul>
+
+        </div>
+        <div class="content">
+            {% block home_body%}
+                Welcome..!!
+            {% endblock %}
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

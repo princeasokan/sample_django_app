@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        {%block title%}
+        Weclome - Admin
+        {%endblock%}
+    </title>
+    <style>
+        nav {
+            background-color: darkmagenta;
+            height: 60px;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            height: calc(100vh - 60px);
+
+        }
+
+        .left-nav {
+            background-color: aquamarine;
+            color: white;
+            
+            padding-right: 5px;
+        }
+
+        .left-nav>ul>li {
+            list-style-type: none;
+        }
+
+        .right_header {
+            padding-top: 10px;
+            color: #fff;
+            float: right;
+            margin-right: 10px;
+        }
+        .header-item{
+            padding-top: 10px;
+            padding-left: 10px;
+            margin:0 10px 0 10px;
+            margin-top: 30px;
+        }
+        .header-item>a{
+            text-decoration: none;
+            color:#fff;
+
+        }
+        .main-content{
+            /* height: 300px; */
+            overflow-y: auto;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="header">
+        
+       <div class="right_header"><span class="header-item">Welcome</span> <span >Admin</span> <span  class="header-item"><a href="/../logout">Logout</a> </span>
+       </div>
+    </nav>
+    <div class="container">
+
+        <div class="left-nav">
+          
+            <ul>
+                <li><a href="../superuser" target="_self">User management</a></li>
+                <!-- <li><a href="users_list">Users</a></li> -->
+                <li><a href="all_products">Users</a></li>
+            </ul>
+
+        </div>
+        <div class="main-content">
+            {% block admin_content%}
+            Wecome..!!
+            {% endblock%}
+
+        </div>
+    </div>
+
+</body>
+
+</html>

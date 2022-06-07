@@ -1,0 +1,8 @@
+
+pip install -r requirements.txt
+makemigrations 
+python manage.py migrate
+python manage.py createsuperuser
+pthon manage.py startapp user_home
+update setting.py with sub app
+add urls in root folder with include keyword

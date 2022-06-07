@@ -1,0 +1,43 @@
+{% extends 'user_home.html' %}
+{%block home_body%}
+<style>
+    .register{
+        margin-left: auto;
+        margin-right: auto;
+        width: 400px;
+    }
+    .register>input{
+        margin-top: 5px;
+    }
+    h3{
+        text-align: left;
+    }
+</style>
+<div></div>
+    
+<form class="register" action="register_brand_action" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h3>Register</h3>
+    <label for="sl_no">Sl No</label><br>
+    <input type="text" id="sl_no" name="sl_no"><br>
+    <label for="brand">Brand</label><br>
+    <input type="text" id="brand" name="brand"><br>
+    <label for="serial_number">Serial:</label><br>
+    <input type="text" id="serial_number" name="serial_number"><br>
+    <label for="model_number">Model:</label><br>
+    <input type="text" id="model_number" name="model_number"><br>
+    <label for="purchase_date">Date:</label><br>
+    <input type="date" id="purchase_date" name="purchase_date"><br>
+
+    <label for="device_type">Device Type:</label><br>
+    <input type="text" id="device_type" name="device_type"><br>
+    <label for="host_name">Host name:</label><br>
+    <input type="text" id="host_name" name="host_name"><br>
+    <label for="project">Project:</label><br>
+    <input type="text" id="project" name="project"><br>
+    <label for="attachments">Attach file:</label><br>
+    <input type="file" id="attachments" name="attachments"><br>
+
+    <input type="submit" value="Submit">
+</form>
+{%endblock%}

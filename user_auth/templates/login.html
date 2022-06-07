@@ -1,0 +1,43 @@
+<style>
+    .container{
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
+        /* background-color: darkgray; */
+        width: 220px;
+        padding:20px;
+        border-radius: 20px;
+        border: 1px solid green;
+    }
+    input{
+        height: 30px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border: 0;
+        border-bottom: 1px solid darkgray;
+    }
+    .btn-login{
+        width: 180px;
+        height: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        border-radius: 30px;
+        background-color: bisque;
+        border: 0px;
+    }
+
+</style>
+<div class="container">
+    
+<form action="/login_validate" method="POST">
+    {% csrf_token %}
+    <label for="username">Username</label><br>
+    <input type="text" id="username" name="username"><br>
+    <!-- <label for="password">Email</label><br>
+    <input type="email" id="email" name="email"><br><br> -->
+    <label for="password">Password</label><br>
+    <input type="password" id="password" name="password"><br><br>
+    <input type="submit" class="btn-login"l value="Login">
+</form>
+</div>
