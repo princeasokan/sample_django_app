@@ -1,10 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
 <style>
-    .container{
+    .container-login{
         margin-left: auto;
         margin-right: auto;
         margin-top: 50px;
         /* background-color: darkgray; */
-        width: 220px;
+        width: 400px;
         padding:20px;
         border-radius: 20px;
         border: 1px solid green;
@@ -26,18 +39,35 @@
         background-color: bisque;
         border: 0px;
     }
+    body{
+        background-color:lavender
+    }
 
 </style>
-<div class="container">
+</head>
+<body>
+<div class="container-login">
     
 <form action="/login_validate" method="POST">
     {% csrf_token %}
-    <label for="username">Username</label><br>
+    <div class="mb-3">
+        <label for="Username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="Username" name="username" placeholder="">
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="">
+      </div>
+
+    <!-- <label for="username">Username</label><br>
     <input type="text" id="username" name="username"><br>
-    <!-- <label for="password">Email</label><br>
-    <input type="email" id="email" name="email"><br><br> -->
+    <label for="password">Email</label><br>
+    <input type="email" id="email" name="email"><br><br>
     <label for="password">Password</label><br>
     <input type="password" id="password" name="password"><br><br>
-    <input type="submit" class="btn-login"l value="Login">
+    <input type="submit" class="btn-login"l value="Login"> -->
+    <button type="submit" class="btn btn-info">Login</button>
 </form>
 </div>
+</body>
+</html>

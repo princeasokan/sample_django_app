@@ -16,9 +16,44 @@
 <div></div>
     
 <form class="register" action="register_brand_action" method="POST" enctype="multipart/form-data">
+
     {% csrf_token %}
-    <h3>Register</h3>
-    <label for="sl_no">Sl No</label><br>
+    <h4>Register</h4>
+
+    <div class="mb-3">
+        <label for="sl_no" class="form-label">Sl No</label>
+        <input type="number" class="form-control" id="sl_no" name="sl_no"placeholder="">
+      </div>
+      <div class="mb-3">
+        <label for="brand" class="form-label">Brand</label>
+        <input type="text" class="form-control" id="brand" name="brand" placeholder="">
+      </div>
+      <div class="mb-3">
+        <label for="serial_number" class="form-label">Serial</label>
+        <input type="text" class="form-control" id="serial_number" name="serial_number" placeholder="">
+      </div>
+      <div class="mb-3">
+        <label for="model_number" class="form-label">Model</label>
+        <input type="text" class="form-control" id="model_number" name="model_number" placeholder="">
+      </div>
+      <div class="mb-3">
+        <label for="purchase_date" class="form-label">Purchase Date</label>
+        <input type="date" class="form-control" id="purchase_date" name="purchase_date" placeholder="">
+      </div>
+      <div class="mb-3">
+        <label for="device_type" class="form-label">Device Type</label>
+        <input type="text" class="form-control" id="device_type" name="device_type" placeholder="">
+      </div>
+      <div class="mb-3">
+        <label for="host_name" class="form-label">Hostname</label>
+        <input type="text" class="form-control" id="host_name" name="host_name" placeholder="">
+      </div>
+      <div class="mb-3">
+        <label for="project" class="form-label">Project</label>
+        <input type="text" class="form-control" id="project" name="project" placeholder="">
+      </div>
+
+    <!-- <label for="sl_no">Sl No</label><br>
     <input type="text" id="sl_no" name="sl_no"><br>
     <label for="brand">Brand</label><br>
     <input type="text" id="brand" name="brand"><br>
@@ -35,9 +70,10 @@
     <input type="text" id="host_name" name="host_name"><br>
     <label for="project">Project:</label><br>
     <input type="text" id="project" name="project"><br>
-    <label for="attachments">Attach file:</label><br>
+    <label for="attachments">Attach file:</label><br> -->
     <input type="file" id="attachments" name="attachments"><br>
 
-    <input type="submit" value="Submit">
+    <input type="submit" class="btn btn-success" value="Submit">
+    <input type="reset" class="btn btn-danger" value="Clear">
 </form>
 {%endblock%}

@@ -2,6 +2,11 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+
     <title>
         {%block title%}
         Weclome - Admin
@@ -24,8 +29,9 @@
         .left-nav {
             background-color: aquamarine;
             color: white;
-            
+
             padding-right: 5px;
+            height: calc(100vh - 60px);
         }
 
         .left-nav>ul>li {
@@ -38,48 +44,90 @@
             float: right;
             margin-right: 10px;
         }
-        .header-item{
+
+        .header-item {
             padding-top: 10px;
             padding-left: 10px;
-            margin:0 10px 0 10px;
+            margin: 0 10px 0 10px;
             margin-top: 30px;
         }
-        .header-item>a{
+
+        .header-item>a {
             text-decoration: none;
-            color:#fff;
+            color: #fff;
+            font-size: 12px;
 
         }
-        .main-content{
-            /* height: 300px; */
+
+        .main-content {
+            height: calc(100vh - 60px);
             overflow-y: auto;
             width: 100%;
+
+        }
+
+        .welcome-msg {
+            padding-right: 20px;
+            padding-left: 20px;
+            color: chartreuse !important;
         }
     </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
 </head>
 
 <body>
-    <nav class="header">
+    <!-- <nav class="header">
         
        <div class="right_header"><span class="header-item">Welcome</span> <span >Admin</span> <span  class="header-item"><a href="/../logout">Logout</a> </span>
        </div>
+    </nav> -->
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">MyApp</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+
+                    <a class="nav-link" href="../superuser" target="_self">Manage users</a>
+
+                </div>
+            </div>
+            <span class="navbar-text">
+                Welcome
+            </span>
+            <span class="navbar-text welcome-msg">
+                Admin
+            </span>
+            <span class="navbar-text">
+                <a href="/../logout">Logout</a>
+        </div>
     </nav>
-    <div class="container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2 left-nav">
+                <ul>
+                    <li>
+                        <a class="nav-link active" aria-current="page" href="all_products">Users</a>
+                    </li>
+                </ul>
+            </div>
 
-        <div class="left-nav">
-          
-            <ul>
-                <li><a href="../superuser" target="_self">User management</a></li>
-                <!-- <li><a href="users_list">Users</a></li> -->
-                <li><a href="all_products">Users</a></li>
-            </ul>
-
+            <div class="col-sm-10 main-content">
+                {% block admin_content%}
+                Wecome..!!
+                {% endblock%}
+            </div>
         </div>
-        <div class="main-content">
-            {% block admin_content%}
-            Wecome..!!
-            {% endblock%}
 
-        </div>
     </div>
 
 </body>
