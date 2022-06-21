@@ -22,9 +22,12 @@ from mysite import settings
 
 
 urlpatterns = [
-    path('',include('user_auth.urls')),
-    path('user/',include('user_home.urls')),
+      path('user/',include('user_home.urls')),
     path('admin/', include('admin_app.urls')),
+
     
     path('superuser/', admin.site.urls),
+    path('',include('user_auth.urls')),
+    # path(include('user_auth.urls')),
+  
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

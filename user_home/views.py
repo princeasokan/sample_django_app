@@ -10,14 +10,27 @@ from django.core.files.storage import FileSystemStorage
 def user_home(request):
     # print(request.session.get('user_session'),'-----<')
     # print('requested',request)
+    print(request.session.session_key)
+    print(request.user.is_authenticated)
+
+    if not request.user.is_authenticated:
+        return render(request,"login.html")
     return render(request,"user_home.html",{'user_logged':'sample'})
     
-def register_brand(response):
-    return render(response,"register_brand.html")
+def register_brand(request):
+    user_id= request.user.id
+    product_list = ProductDetails.objects.filter(user_id=user_id).count() 
+    is_registered =True if (int(product_list)>0) else False
+    
+    if not request.user.is_authenticated:
+        return render(request,'login.html')
+    return render(request,"register_brand.html",{'is_registered':is_registered})
 
 def register_brand_action(request):
     # form=ProductDetailsForm()
     # context={'form':form}
+    if not request.user.is_authenticated:
+        return render(request,'login.html')
     
     if request.method == "POST":        
         user_form = ProductDetailsForm(data=request.POST)
@@ -42,3 +55,4 @@ def product_list(request):
     user_id= request.user.id
     product_list = ProductDetails.objects.filter(user_id=user_id)
     return render(request,'product_list.html',{'product_list':product_list})
+

@@ -6,3 +6,10 @@ python manage.py createsuperuser
 pthon manage.py startapp user_home
 update setting.py with sub app
 add urls in root folder with include keyword
+
+
+sudo systemctl restart apache2
+ sudo chmod o+x /home/ubuntu
+
+sudo tail -f /var/log/apache2/
+screen -d -m python manage.py runserver 0.0.0.0:8000

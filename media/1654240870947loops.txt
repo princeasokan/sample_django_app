@@ -1,0 +1,3 @@
+
+
+{"Script Type":"Procedure","Description":"Prints numbers from 1 to the given number","Procedure":{"Name":"dbo.PrintNumbers","Parameters":[{"Name":"@Number","Type":"int"}],"Body":[{"Type":"Declare","Variable":"@Counter","Value":1},{"Type":"While","Condition":"@Counter<=@Number","Body":[{"Type":"Print","Value":"@Counter"},{"Type":"Set","Variable":"@Counter","Value":"@Counter+1"}]}]}}
