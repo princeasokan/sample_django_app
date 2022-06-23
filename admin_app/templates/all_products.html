@@ -52,8 +52,8 @@
     }
 
 </script>
-<div class="table_container">
-    <table>
+<div>
+    <table class="table table-hover">
         <tr>
             <th>Sl No</th>
             <th>Device Type</th>
@@ -70,30 +70,36 @@
             <th></th>
 
         </tr>
-        {%for item in product_list%}
-        <tr>
-            <td>{{item.sl_no}}</td>
-            <td>{{item.serial_number}}</td>
-            <td>{{item.device_type}}</td>
-            <td>{{item.brand}}</td>
-            <td>{{item.model_number}}</td>
-            <td>{{item.host_name}}</td>
-            <td>{{item.purchase_date}}</td>
-            <td>{{item.project}}</td>
-            <td><a href="{{item.attachments}}" target="_blank">{{item.attachments }}</a></td>
-            <td>{{item.user_id.username}}</td>
-            <td>{{item.user_id.id}}</td>
-            <td>
-                {% if item.user_id.is_active == True%}
-                <button type="button" class="btn btn-secondary" onClick="disableLogin('{{item.user_id.id}}')" id="user_{{item.user_id.id}}">Disable</button>
-            </td>
-            {%else%}
-            <button type="button" class="btn btn-secondary" onClick="disableLogin('{{item.user_id.id}}')" id="user_{{item.user_id.id}}">Enable</button>
-            {%endif%}
+        <tbody>
+            {%for item in product_list%}
+            <tr>
+                <td>{{item.sl_no}}</td>
+                <td>{{item.serial_number}}</td>
+                <td>{{item.device_type}}</td>
+                <td>{{item.brand}}</td>
+                <td>{{item.model_number}}</td>
+                <td>{{item.host_name}}</td>
+                <td>{{item.purchase_date}}</td>
+                <td>{{item.project}}</td>
+                <td><a href="{{item.attachments}}" target="_blank" download="">{{item.attachments }}</a></td>
+                <td>{{item.user_id.username}}</td>
+                <td>{{item.user_id.id}}</td>
 
-            <td></td>
-        </tr>
-        {%endfor%}
+                {% if item.user_id.is_active == True%}
+                <td>
+                    <button type="button" class="btn btn-secondary" onClick="disableLogin('{{item.user_id.id}}')"
+                        id="user_{{item.user_id.id}}">Disable</button>
+                </td>
+                {%else%}
+                <td>
+                    <button type="button" class="btn btn-secondary" onClick="disableLogin('{{item.user_id.id}}')"
+                        id="user_{{item.user_id.id}}">Enable</button>
+                    {%endif%}
+                </td>
+
+            </tr>
+            {%endfor%}
+        </tbody>
     </table>
 </div>
 {%endblock%}

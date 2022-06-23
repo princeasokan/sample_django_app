@@ -5,21 +5,60 @@
         margin-top: 20px;
         margin-left: 20px;
     }
+    table,td{
+        padding-left: 10px;
+    }
 </style>
-<div class="table_container">
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-        </tr>
-        {%for user in user_list%}
-        <tr>
-            <td>{{user.name}}</td>
-            <td>{{user.email}}</td>
+<script>
+    // let removeUser=(userId)=>{
+    //     fetch('/admin/api/remove_user/'+userId).then((result)=>{
 
-            <td></td>
-        </tr>
-        {%endfor%}
-    </table>
+    //     })
+
+    // }
+    
+</script>
+<div class="container">
+    <div class="row">
+     
+            <table class="table table-hover">
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th> Email</th>
+                    <th colspan="2">Login Status</th>
+                </tr>
+                <tbody>
+                {%for user in user_list%}
+                <tr>
+                    <th><input type="checkbox" style="width: 20px;"></th>
+                    <td>{{user.first_name}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>        
+                    
+                {% if user.is_active == True%}
+                <td>
+                    <button type="button" class="btn btn-secondary" onClick="disableLogin('{{item.user_id.id}}')"
+                        id="user_{{item.user_id.id}}">Disable</button>
+                </td>
+                {%else%}
+                <td>
+                    <button type="button" class="btn btn-secondary" onClick="disableLogin('{{item.user_id.id}}')"
+                        id="user_{{item.user_id.id}}">Enable</button>
+                    {%endif%}
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger" onClick="removeUser(user.id)">X</button>
+                </td>
+                </tr>
+                {%endfor%}
+               
+            </tbody>
+            </table>
+      
+   
+    </div>
 </div>
+
 {%endblock%}

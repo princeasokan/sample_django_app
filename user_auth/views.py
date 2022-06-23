@@ -55,3 +55,32 @@ def disableLogin():
     user.save()
     print(user)
 
+def register(request):
+    if(request.method=='GET'):
+            return render(request,'register.html')
+    else:
+        username = request.POST['username']
+        password = request.POST['password']
+        first_name= request.POST['first_name']
+        print("first_name",first_name)
+        try:
+            user = User.objects.create_user(username=username,password=password)
+            #Profile.objects.create(user=user,full_name=full_name)
+            user.save()
+            return render(request,'register_success.html',{'error':False,'message':""})
+        except:            
+             return render(request,'register_success.html',{'error':True,'message':"Unable to register the user,try different username"})
+# def register_user(request):
+#     print("in registier====>")
+#     if request.method=='POST':
+#         #PROCESS THE REQUES
+#         #full_name = request.POST['full_name']
+#         username = request.POST['username']
+#         password = request.POST['password']
+#         user = User.object.create_user(username=username,password=password)
+#         #Profile.objects.create(user=user,full_name=full_name)
+#         user.save()
+#         response_data={}
+#         response_data.message = 'Account created'
+#         return HttpResponse(json.dumps(response_data), content_type="application/json")
+#     return HttpResponse(json.dumps({"response":""}), content_type="application/json"

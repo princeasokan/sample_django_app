@@ -33,8 +33,14 @@ ALLOWED_HOSTS = [
 
 
 # Application definition
+REST_FRAMEWORK = {
+        'DEFAULT_PARSER_CLASSES': [
+            'rest_framework.parsers.JSONParser',
+        ],    
+    }
 
 INSTALLED_APPS = [
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,7 +49,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user_home.apps.UserHomeConfig',
     'user_auth.apps.UserAuthConfig',
-    'admin_app.apps.AdminAppConfig'
+    'admin_app.apps.AdminAppConfig',
+    'base.apps.BaseConfig',
+    'api.apps.ApiConfig'
 ]
 
 MIDDLEWARE = [

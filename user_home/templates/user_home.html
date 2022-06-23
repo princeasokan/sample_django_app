@@ -45,6 +45,15 @@
         width: 200px;
         min-height: calc(100vh - 30px);
     }
+    @media screen and (max-width: 480px) {
+        .left-nav {
+        background-color: aquamarine;
+        color: white;
+        width: 200px;
+        min-height:30px;
+        width: 100%;
+    }
+}
 
     .content {
         min-height: calc(100vh - 60px);
@@ -91,17 +100,17 @@
             </div>
             <span class="navbar-text">
                 <a href="/../logout">Logout</a>
+                </span>
+                <span>&nbsp; </span>
         </div>
     </nav>
-   
+
 
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-2 left-nav">
                 <ul>
-                   
-                        <li><a href="register_brand">Register </a></li>
-                   
+                    <li><a href="register_brand">Register </a></li>
                     <!-- <li><a href="product_list">Show list</a></li> -->
                 </ul>
             </div>

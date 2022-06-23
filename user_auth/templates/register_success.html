@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+
+{% block content_main %}
+<script>
+    const checkUserName = () => {
+        console.log("herecheckUserName")
+        let data= new FormData(document.getElementById("form"))
+        console.log(data)
+        let url = '/api/register_user'
+        fetch(url, {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            mode: 'cors',
+            headers: {
+      'Content-Type': 'application/json'
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+            body: JSON.stringify(data)
+        })
+        return;
+
+    }
+</script>
+
+<div class="container">
+    <div class="row">
+        {% if error == False %}
+        <div class="column col-sm-5">
+            <h2>User registered</h2>
+            <a href="/login">Login</a>
+        </div>
+        {%else%}
+        <div class="column col-sm-12">
+            <h3>{{message}}</h3>
+            <a href="/register">Register</a>
+            
+        </div>
+        {%endif%}
+
+    </div>
+
+</div>
+
+{% endblock %}

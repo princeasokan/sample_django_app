@@ -39,7 +39,7 @@ def disable_login(request,id):
     print(user)
     response_data = {'user_id':id,'status':True}
     response_data['result'] = 'error'
-    response_data['message'] = 'Some error message'
+    response_data['message'] = 'User login disabled'
     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
 def enable_login (request,id):
@@ -49,6 +49,6 @@ def enable_login (request,id):
     user.save()
     print(user)
     response_data = {'user_id':id,'status':True}
-    response_data['result'] = 'error'
-    response_data['message'] = 'Some error message'
+    response_data['result'] = 'User login enabled'
+    response_data['message'] = 'User login enabled'
     return HttpResponse(json.dumps(response_data), content_type="application/json")

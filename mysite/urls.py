@@ -23,10 +23,9 @@ from mysite import settings
 
 urlpatterns = [
       path('user/',include('user_home.urls')),
-    path('admin/', include('admin_app.urls')),
-
-    
+      path('admin/', include('admin_app.urls')),    
     path('superuser/', admin.site.urls),
+    path('api/',include('api.urls')),
     path('',include('user_auth.urls')),
     # path(include('user_auth.urls')),
   
